@@ -9,12 +9,13 @@ gem 'mysql2'
 
 group :development do
   gem 'rspec-rails'
+  gem 'webrat'
+  gem 'annotate-models'
 end
 
 group :test do
   gem 'rspec'
-  gem 'webrat'
-  gem 'spork'
+  gem 'factory_girl_rails'
 end
 
 # Use unicorn as the web server

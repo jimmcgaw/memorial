@@ -6,6 +6,17 @@ Memorial::Application.routes.draw do
   get "pages/about"
 
   get "pages/contact"
+  
+  get "sessions/new"
+  
+  resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
+  
+  match "/signup", :to => "users#new"
+  match "/login", :to => "sessions#new"
+  match "/logout", :to => "sessions#destroy"
+
+  get "pages/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
