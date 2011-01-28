@@ -4,6 +4,7 @@
   <title>Memorial<% if @title%>: <%= @title %><% end %></title>
   <%= stylesheet_link_tag "styles" %>
   <%= csrf_meta_tag %>
+  <%= javascript_include_tag "modernizr-1.6.min" %>
 </head>
 <body>
 <% flash.each do |key, value| %>
