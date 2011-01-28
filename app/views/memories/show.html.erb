@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @memory.first_name %>
+</p>
+
+<p>
+  <b>Middle name:</b>
+  <%= @memory.middle_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @memory.last_name %>
+</p>
+
+<p>
+  <b>Epitaph:</b>
+  <%= @memory.epitaph %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @memory.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_memory_path(@memory) %> |
+<%= link_to 'Back', memories_path %>

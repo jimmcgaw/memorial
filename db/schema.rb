@@ -10,7 +10,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110118220348) do
+ActiveRecord::Schema.define(:version => 20110128035052) do
+
+  create_table "memories", :force => true do |t|
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.string   "last_name"
+    t.string   "epitaph"
+    t.text     "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "memories", ["user_id"], :name => "fk_memories_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                                                 :null => false

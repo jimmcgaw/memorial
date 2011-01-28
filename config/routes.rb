@@ -1,4 +1,6 @@
 Memorial::Application.routes.draw do
+  resources :memories
+
   root :to => "pages#home"
   
   get "pages/home"

@@ -15,6 +15,8 @@
 require 'digest'
 
 class User < ActiveRecord::Base
+  has_many :memories
+  
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation
   attr_accessor :password
   
@@ -60,7 +62,7 @@ class User < ActiveRecord::Base
   end
   
   def encrypt(string)
-    string # to do
+    secure_hash("#{salt}--#{string}")
   end
   
   def make_salt
