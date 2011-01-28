@@ -36,9 +36,9 @@ Worthy.attachPlaceholders = function(){
 };
 
 Worthy.expandFlash = function(){
-	jQuery("div.flash").show("fast");
+	jQuery("div.flash").slideToggle();
 	jQuery("div.flash input.close").click(function(){
-		jQuery(this).parent("div").hide("fast");
+		jQuery(this).parent("div").slideToggle();
 	});
 };
 

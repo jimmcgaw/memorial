@@ -1,20 +1,4 @@
 Memorial::Application.routes.draw do
-  get "memories/index"
-
-  get "memories/show"
-
-  get "memories/new"
-
-  get "memories/edit"
-
-  get "memories/create"
-
-  get "memories/update"
-
-  get "memories/destroy"
-
-  resources :memories
-
   root :to => "pages#home"
   
   get "pages/home"
@@ -27,6 +11,10 @@ Memorial::Application.routes.draw do
   
   resources :users
   resources :sessions, :only => [:new, :create, :destroy]
+  
+  resources :memories do
+    resources :eulogies
+  end
   
   match "/signup", :to => "users#new"
   match "/login", :to => "sessions#new"
