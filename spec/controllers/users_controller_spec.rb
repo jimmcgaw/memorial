@@ -90,7 +90,7 @@ describe UsersController do
       
       it "should redirect to the overview page" do
         post :create, :user => @valid_data
-        response.should redirect_to(root_path)
+        response.should redirect_to(new_memory_path)
       end
       
       it "should show a welcome message in flash" do

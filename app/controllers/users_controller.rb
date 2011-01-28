@@ -47,7 +47,7 @@ class UsersController < ApplicationController
       if @user.save
         sign_in @user
         flash[:success] = "Thanks for signing up!"
-        format.html { redirect_to root_path }
+        format.html { redirect_to new_memory_path }
         format.xml  { render :xml => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }

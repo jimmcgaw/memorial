@@ -5,11 +5,13 @@ class CreateMemories < ActiveRecord::Migration
   
   def self.up
     create_table :memories do |t|
-      t.string :first_name
+      t.string :first_name, :null => false
       t.string :middle_name
-      t.string :last_name
+      t.string :last_name, :null => false
       t.string :epitaph
-      t.text :description
+      t.date :date_of_birth
+      t.date :date_of_death
+      t.text :description, :null => false
       t.belongs_to :user
       
       t.timestamps

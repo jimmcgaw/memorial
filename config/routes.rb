@@ -1,4 +1,18 @@
 Memorial::Application.routes.draw do
+  get "memories/index"
+
+  get "memories/show"
+
+  get "memories/new"
+
+  get "memories/edit"
+
+  get "memories/create"
+
+  get "memories/update"
+
+  get "memories/destroy"
+
   resources :memories
 
   root :to => "pages#home"
