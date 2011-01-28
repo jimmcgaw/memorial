@@ -1,5 +1,8 @@
 class PagesController < ApplicationController
-  def index
+  
+  def home
+    @memories = Memory.find(:all)
   end
+
 
 end
