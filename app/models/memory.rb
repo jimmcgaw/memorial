@@ -8,4 +8,8 @@ class Memory < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+  
+  def lived
+    "#{date_of_birth.year} - #{date_of_death.year}"
+  end
 end

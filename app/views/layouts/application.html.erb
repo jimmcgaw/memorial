@@ -2,28 +2,57 @@
 <html>
 <head>
   <title>Memorial<% if @title%>: <%= @title %><% end %></title>
-  <%= stylesheet_link_tag :all %>
+  <%= stylesheet_link_tag "styles" %>
   <%= csrf_meta_tag %>
 </head>
 <body>
-
-<div style="float:right;">
-	<% if signed_in? %>
-		<%= link_to "Logout", logout_path, :method => :delete %>
-	<% else %>
-		<%= link_to "Sign Up", signup_path %> | 
-		<%= link_to "Login", login_path %>
-	<% end %>
-</div>
-
 <% flash.each do |key, value| %>
-	<%= content_tag(:div, value, :class => "flash #{key}") %>
+	<div class="flash <%= key %>"><%= value %></div>
 <% end %>
-
-<%= yield %>
-
-<div style="background-color:#cff;padding:5px;">
-	<%= debug(params) if Rails.env.development? %>
+<div id="middle">
+	<header>
+		<section class="authlinks">
+			<% if signed_in? %>
+				<%= link_to "Logout", logout_path, :method => :delete %>
+			<% else %>
+				<%= link_to "Sign Up", signup_path %> | 
+				<%= link_to "Login", login_path %>
+			<% end %>
+		</section>
+		<h1>
+			<%= link_to "Memorial", root_path %>
+		</h1>
+	</header>
+	<nav>
+		<ul>
+			<li><%= link_to "Home", root_path %></li>
+			<li><%= link_to "About", pages_about_path %></li>
+			<li><%= link_to "Contact", pages_contact_path %></li>
+			<% if signed_in? %>
+				<li><%= link_to "Logout", logout_path, :method => :delete %></li>
+			<% else %>
+				<li><%= link_to "Sign Up", signup_path %></li>
+				<li><%= link_to "Login", login_path %></li>
+			<% end %>
+		</ul>
+	</nav>
+	
+	<section class="primary">
+	
+		<section class="sidebar">
+			<%= yield :sidebar %>
+		</section>
+		
+		<section class="content">
+			<%= yield %>
+		</section>
+		
+		<div style="clear:both;"></div>
+	</section>
+	
+	<div style="padding:5px;background-color:maroon;color:white;margin-top:15px;">
+		<%= debug(params) if Rails.env.development? %>
+	</div>
 </div>
 
 <%= javascript_include_tag "jquery-1.4.4.min" %>

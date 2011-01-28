@@ -1,9 +1,8 @@
 <h1>Welcome to Ye Olde Memorial Pages</h1>
-
-
-<h2>Recent Memories</h2>
-<br />
-<%= render :partial => 'pages/recent', :collection => @memories, :as => :memory %>
-<br /><br />
 <p>Built a page to preserve the memory of your loved one here. It's free!</p>
-<p><%= link_to "Register Now", signup_path %></p>
+<p><%= link_to "Sign Up Now", signup_path, :class => "button" %></p>
+
+<% content_for :sidebar do %>
+	<h2>Recent Memories</h2>
+	<%= render :partial => 'pages/recent', :collection => @memories, :as => :memory %>
+<% end %>

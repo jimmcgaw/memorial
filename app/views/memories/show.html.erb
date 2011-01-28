@@ -1,37 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h1><%= @memory.full_name %></h1>
+<%= @memory.lived %>
+<br />
+<% if @memory.epitaph %>
+<em><%= @memory.epitaph %></em>
+<% end %>
+<br />
+<h5>About <%= @memory.first_name %></h5>
 <p>
-  <b>First name:</b>
-  <%= @memory.first_name %>
-</p>
-
-<p>
-  <b>Middle name:</b>
-  <%= @memory.middle_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @memory.last_name %>
-</p>
-
-<p>
-  <b>Epitaph:</b>
-  <%= @memory.epitaph %>
-</p>
-
-<p>
-  <b>Date of birth:</b>
-  <%= @memory.date_of_birth %>
-</p>
-
-<p>
-  <b>Date of death:</b>
-  <%= @memory.date_of_death %>
-</p>
-
-<p>
-  <b>Description:</b>
   <%= @memory.description %>
 </p>
 
