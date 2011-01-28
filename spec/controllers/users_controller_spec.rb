@@ -65,7 +65,8 @@ describe UsersController do
       end
       
       it "should have the right title" do
-        # put in when the title tags get created
+        get :new
+        response.should have_selector("title", :content => "Sign Up")
       end
     end
     
