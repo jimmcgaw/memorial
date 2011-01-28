@@ -107,9 +107,14 @@ div.field label{font-weight:bold;}
 	padding:5px;
 }
 
+#error_explanation ul{
+	margin-top:10px;	
+}
+
 #error_explanation ul li{
-	font-size:12px;
+	font-size:14px;
 	list-style:square;
+	margin-left:15px;
 }
 
 div#middle{
@@ -123,7 +128,12 @@ div.flash{
 	padding:5px;
 	text-align:center;
 	background-color:pink;
-	color:#ccc;
+	color:#333;
+}
+
+div.flash input.close{
+	margin-left:15px;
+	
 }
 
 a{

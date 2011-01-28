@@ -24,11 +24,6 @@ Worthy.attachPlaceholder = function(input, default_text, class_name){
 	});
 };
 
-Worthy.prepareSearchBox = function(){
-	var search_input = jQuery("form.search div.search input");
-	Worthy.attachPlaceholder(search_input, "Find a charity, cause, project, or loan.", "default");
-};
-
 // get all input elements with a placeholder attribute and make them JavaScript-based
 // for browsers that don't support HTML5
 Worthy.attachPlaceholders = function(){
@@ -40,9 +35,16 @@ Worthy.attachPlaceholders = function(){
 	}
 };
 
+Worthy.expandFlash = function(){
+	jQuery("div.flash").show("fast");
+	jQuery("div.flash input.close").click(function(){
+		jQuery(this).parent("div").hide("fast");
+	});
+};
+
 Worthy.prepareDocument = function(){
 	Worthy.attachPlaceholders();
-	//Worthy.prepareSearchBox();
+	Worthy.expandFlash();
 };
 
 jQuery(document).ready(Worthy.prepareDocument);

@@ -1,4 +1,8 @@
 class MemoriesController < ApplicationController
+  
+  before_filter :authenticate, :except => [:show]
+  before_filter :correct_user, :only => [:edit, :update]
+  
   # GET /memories
   # GET /memories.xml
   def index
@@ -41,7 +45,7 @@ class MemoriesController < ApplicationController
   # POST /memories.xml
   def create
     @memory = Memory.new(params[:memory])
-
+    @memory.user = current_user
     respond_to do |format|
       if @memory.save
         format.html { redirect_to(@memory, :notice => 'Memory was successfully created.') }
@@ -79,5 +83,16 @@ class MemoriesController < ApplicationController
       format.html { redirect_to(memories_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  
+  def authenticate
+    deny_access unless signed_in?
+  end
+  
+  def correct_user
+    @user = Memory.find(params[:id]).user
+    redirect_to(root_path) unless current_user?(@user)
   end
 end
