@@ -6,6 +6,15 @@ class Memory < ActiveRecord::Base
   validates :last_name, :presence => true
   validates :description, :presence => true
   
+  def before_create
+    @attributes['permalink'] = full_name.downcase.gsub(/\s+/, '-').gsub(/[^a-zA-Z0-9-]+/, '')
+  end
+
+  
+  def to_param
+    "#{id}-#{permalink}"
+  end
+  
   def full_name
     "#{first_name} #{last_name}"
   end
