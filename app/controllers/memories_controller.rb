@@ -27,6 +27,7 @@ class MemoriesController < ApplicationController
   # GET /memories/1.xml
   def show
     @memory = Memory.find(params[:id].to_i)
+    @funerals = @memory.funerals
     @eulogies = @memory.eulogies
     @correct_user = @memory.user == current_user
 

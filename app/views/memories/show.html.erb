@@ -4,6 +4,8 @@
 	<div style="float:right;padding:10px;width:200px;">
 		You are the owner of this memory.<br />
 		<%= link_to 'Edit this Memory', edit_memory_path(@memory) %>
+		<br /><br />
+		<%= link_to 'Manage Funeral Events', memory_funerals_path(@memory) %>
 	</div>
 <% end %>
 
@@ -19,6 +21,12 @@
   <%= @memory.description %>
 </p>
 <br /><br />
+<% if @memory.show_funeral && @funerals %>
+	<h5>Funeral Events</h5>
+	<%= render :partial => "funeral", :collection => @funerals, :as => :funeral %>
+	<br /><br />
+<% end %>
+
 <h5>Eulogies</h5>
 <% if @eulogies %>
 	<%= render :partial => "eulogy", :collection => @eulogies, :as => :eulogy  %>

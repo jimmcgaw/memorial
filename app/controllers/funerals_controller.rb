@@ -19,6 +19,7 @@ class FuneralsController < ApplicationController
   # GET /funerals/1.xml
   def show
     @funeral = Funeral.find(params[:id])
+    @correct_user = @funeral.memory.user == current_user
 
     respond_to do |format|
       format.html # show.html.erb
@@ -46,10 +47,11 @@ class FuneralsController < ApplicationController
   # POST /funerals.xml
   def create
     @funeral = Funeral.new(params[:funeral])
+    @funeral.memory = @memory
 
     respond_to do |format|
       if @funeral.save
-        format.html { redirect_to(@funeral, :notice => 'Funeral was successfully created.') }
+        format.html { redirect_to(memory_funerals_path(@memory), :notice => 'Funeral was successfully created.') }
         format.xml  { render :xml => @funeral, :status => :created, :location => @funeral }
       else
         format.html { render :action => "new" }
@@ -65,7 +67,7 @@ class FuneralsController < ApplicationController
 
     respond_to do |format|
       if @funeral.update_attributes(params[:funeral])
-        format.html { redirect_to(@funeral, :notice => 'Funeral was successfully updated.') }
+        format.html { redirect_to(memory_funerals_path(@memory), :notice => 'Funeral was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -81,7 +83,7 @@ class FuneralsController < ApplicationController
     @funeral.destroy
 
     respond_to do |format|
-      format.html { redirect_to(funerals_url) }
+      format.html { redirect_to(memory_funerals_path(@memory)) }
       format.xml  { head :ok }
     end
   end

@@ -1,5 +1,17 @@
 <p id="notice"><%= notice %></p>
 
+<% if @correct_user %>
+	<div style="float:right;padding:10px;width:200px;">
+		You are the owner of this funeral.<br />
+		<%= link_to 'Edit this Funeral', edit_memory_funeral_path(@memory, @funeral) %>
+	</div>
+<% end %>
+
+<p>
+  <b>Who:</b>
+  <%= link_to @funeral.memory.full_name, @funeral.memory %>
+</p>
+
 <p>
   <b>Where:</b>
   <%= @funeral.where %>
@@ -45,11 +57,5 @@
   <%= @funeral.instructions %>
 </p>
 
-<p>
-  <b>Memory:</b>
-  <%= @funeral.memory_id %>
-</p>
 
 
-<%= link_to 'Edit', edit_funeral_path(@funeral) %> |
-<%= link_to 'Back', funerals_path %>

@@ -1,4 +1,4 @@
-<%= form_for([@memory, @memory.funerals.new]) do |f| %>
+<%= form_for([@memory, @funeral]) do |f| %>
   <% if @funeral.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@funeral.errors.count, "error") %> prohibited this funeral from being saved:</h2>
@@ -45,13 +45,9 @@
   </div>
   <div class="field">
     <%= f.label :instructions %><br />
-    <%= f.text_area :instructions %>
-  </div>
-  <div class="field">
-    <%= f.label :memory_id %><br />
-    <%= f.text_field :memory_id %>
+    <%= f.text_area :instructions, :cols => 60, :rows => 5 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", :class => "button" %>
   </div>
 <% end %>

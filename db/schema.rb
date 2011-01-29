@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110129043928) do
+ActiveRecord::Schema.define(:version => 20110129081529) do
 
   create_table "eulogies", :force => true do |t|
     t.string   "title"
@@ -42,17 +42,18 @@ ActiveRecord::Schema.define(:version => 20110129043928) do
   add_index "funerals", ["memory_id"], :name => "fk_funerals_memory_id"
 
   create_table "memories", :force => true do |t|
-    t.string   "first_name",    :null => false
+    t.string   "first_name",                      :null => false
     t.string   "middle_name"
-    t.string   "last_name",     :null => false
+    t.string   "last_name",                       :null => false
     t.string   "epitaph"
     t.date     "date_of_birth"
     t.date     "date_of_death"
-    t.text     "description",   :null => false
+    t.text     "description",                     :null => false
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "permalink",     :null => false
+    t.string   "permalink",                       :null => false
+    t.boolean  "show_funeral",  :default => true
   end
 
   add_index "memories", ["user_id"], :name => "fk_memories_user_id"
