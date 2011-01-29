@@ -69,6 +69,14 @@ input.placeholder{
 div.field, div.actions{margin-bottom:10px;}
 div.field label{font-weight:bold;}
 
+table tr{
+	height:30px;
+}
+
+table tr th{
+	text-align:left;
+}
+
 /* styles for for error message */
 .field_with_errors{
 	margin-top:10px;

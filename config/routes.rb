@@ -1,4 +1,5 @@
 Memorial::Application.routes.draw do
+
   root :to => "pages#home"
   
   get "pages/home"
@@ -14,6 +15,7 @@ Memorial::Application.routes.draw do
   
   resources :memories do
     resources :eulogies
+    resources :funerals
   end
   
   match "/signup", :to => "users#new"

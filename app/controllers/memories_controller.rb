@@ -6,7 +6,7 @@ class MemoriesController < ApplicationController
   # GET /memories
   # GET /memories.xml
   def index
-    @memories = Memory.all
+    @memories = current_user.memories
 
     respond_to do |format|
       format.html # index.html.erb
@@ -49,7 +49,7 @@ class MemoriesController < ApplicationController
 
   # GET /memories/1/edit
   def edit
-    @memory = Memory.find(params[:id])
+    @memory = current_user.memories.find(params[:id].to_i)
   end
 
   # POST /memories
@@ -71,7 +71,7 @@ class MemoriesController < ApplicationController
   # PUT /memories/1
   # PUT /memories/1.xml
   def update
-    @memory = Memory.find(params[:id])
+    @memory = Memory.find(params[:id].to_i)
 
     respond_to do |format|
       if @memory.update_attributes(params[:memory])
@@ -87,7 +87,7 @@ class MemoriesController < ApplicationController
   # DELETE /memories/1
   # DELETE /memories/1.xml
   def destroy
-    @memory = Memory.find(params[:id])
+    @memory = Memory.find(params[:id].to_i)
     @memory.destroy
 
     respond_to do |format|
@@ -103,7 +103,7 @@ class MemoriesController < ApplicationController
   end
   
   def correct_user
-    @user = Memory.find(params[:id]).user
-    redirect_to(root_path) unless current_user?(@user)
+    @user = Memory.find(params[:id].to_i).user
+    redirect_to(memories_path) unless current_user?(@user)
   end
 end

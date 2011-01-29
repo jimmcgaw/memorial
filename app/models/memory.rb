@@ -1,6 +1,7 @@
 class Memory < ActiveRecord::Base
   belongs_to :user
   has_many :eulogies
+  has_many :funerals
   
   validates :first_name, :presence => true
   validates :last_name, :presence => true
@@ -16,7 +17,11 @@ class Memory < ActiveRecord::Base
   end
   
   def full_name
-    "#{first_name} #{last_name}"
+    if self.middle_name
+      "#{first_name} #{middle_name} #{last_name}"
+    else
+      "#{first_name} #{last_name}"
+    end
   end
   
   def lived

@@ -1,0 +1,41 @@
+<h1>Listing funerals</h1>
+
+<table>
+  <tr>
+    <th>Where</th>
+    <th>When</th>
+    <th>Address1</th>
+    <th>Address2</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Postal code</th>
+    <th>Phone number</th>
+    <th>Instructions</th>
+    <th>Memory</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @funerals.each do |funeral| %>
+  <tr>
+    <td><%= funeral.where %></td>
+    <td><%= funeral.when %></td>
+    <td><%= funeral.address1 %></td>
+    <td><%= funeral.address2 %></td>
+    <td><%= funeral.city %></td>
+    <td><%= funeral.state %></td>
+    <td><%= funeral.postal_code %></td>
+    <td><%= funeral.phone_number %></td>
+    <td><%= funeral.instructions %></td>
+    <td><%= funeral.memory_id %></td>
+    <td><%= link_to 'Show', funeral %></td>
+    <td><%= link_to 'Edit', edit_memory_funeral_path(funeral) %></td>
+    <td><%= link_to 'Destroy', funeral, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Funeral', new_memory_funeral_path %>

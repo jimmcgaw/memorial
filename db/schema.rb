@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110129034217) do
+ActiveRecord::Schema.define(:version => 20110129043928) do
 
   create_table "eulogies", :force => true do |t|
     t.string   "title"
@@ -23,6 +23,23 @@ ActiveRecord::Schema.define(:version => 20110129034217) do
 
   add_index "eulogies", ["memory_id"], :name => "fk_eulogies_memory_id"
   add_index "eulogies", ["user_id"], :name => "fk_eulogies_user_id"
+
+  create_table "funerals", :force => true do |t|
+    t.string   "where"
+    t.datetime "when"
+    t.string   "address1"
+    t.string   "address2"
+    t.string   "city"
+    t.string   "state"
+    t.string   "postal_code"
+    t.string   "phone_number"
+    t.text     "instructions"
+    t.integer  "memory_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "funerals", ["memory_id"], :name => "fk_funerals_memory_id"
 
   create_table "memories", :force => true do |t|
     t.string   "first_name",    :null => false

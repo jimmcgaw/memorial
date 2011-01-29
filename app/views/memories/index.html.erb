@@ -1,14 +1,11 @@
-<h1>Listing memories</h1>
+<h1>Your Memories</h1>
 
-<table>
+<table width="100%">
   <tr>
-    <th>First name</th>
-    <th>Middle name</th>
-    <th>Last name</th>
+    <th>Name</th>
     <th>Epitaph</th>
     <th>Date of birth</th>
     <th>Date of death</th>
-    <th>Description</th>
     <th></th>
     <th></th>
     <th></th>
@@ -16,15 +13,12 @@
 
 <% @memories.each do |memory| %>
   <tr>
-    <td><%= memory.first_name %></td>
-    <td><%= memory.middle_name %></td>
-    <td><%= memory.last_name %></td>
+    <td><%= memory.full_name %></td>
     <td><%= memory.epitaph %></td>
     <td><%= memory.date_of_birth %></td>
     <td><%= memory.date_of_death %></td>
-    <td><%= memory.description %></td>
-    <td><%= link_to 'Show', memory %></td>
-    <td><%= link_to 'Edit', edit_memory_path(memory) %></td>
+    <td><%= link_to 'View Page', memory %></td>
+    <td><%= link_to 'Edit Page', edit_memory_path(memory) %></td>
     <td><%= link_to 'Destroy', memory, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -32,4 +26,4 @@
 
 <br />
 
-<%= link_to 'New Memory', new_memory_path %>
+<%= link_to 'Create New Memory', new_memory_path, :class => "button" %>

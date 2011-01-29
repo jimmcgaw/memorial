@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Where:</b>
+  <%= @funeral.where %>
+</p>
+
+<p>
+  <b>When:</b>
+  <%= @funeral.when %>
+</p>
+
+<p>
+  <b>Address1:</b>
+  <%= @funeral.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @funeral.address2 %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @funeral.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @funeral.state %>
+</p>
+
+<p>
+  <b>Postal code:</b>
+  <%= @funeral.postal_code %>
+</p>
+
+<p>
+  <b>Phone number:</b>
+  <%= @funeral.phone_number %>
+</p>
+
+<p>
+  <b>Instructions:</b>
+  <%= @funeral.instructions %>
+</p>
+
+<p>
+  <b>Memory:</b>
+  <%= @funeral.memory_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_funeral_path(@funeral) %> |
+<%= link_to 'Back', funerals_path %>
