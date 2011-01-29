@@ -28,7 +28,7 @@ class MemoriesController < ApplicationController
   def show
     @memory = Memory.find(params[:id].to_i)
     @eulogies = @memory.eulogies
-    @correct_user = @memory.user == @current_user
+    @correct_user = @memory.user == current_user
 
     respond_to do |format|
       format.html # show.html.erb
