@@ -32,6 +32,12 @@
 		</h1>
 	</header>
 	<nav>
+		<div style="float:right;padding:2px 15px 0 0;">
+			<form action="<%= search_path %>">
+				<input type="search" name="q" placeholder="Search for person" />
+			</form>
+		</div>
+		
 		<ul>
 			<li><%= link_to "Home", root_path %></li>
 			<li><%= link_to "About", pages_about_path %></li>

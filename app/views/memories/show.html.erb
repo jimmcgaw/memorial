@@ -1,17 +1,35 @@
 <p id="notice"><%= notice %></p>
 
+<% if @correct_user %>
+<div style="float:right;padding:10px;width:200px;">
+	You are the owner of this memory.<br />
+	<%= link_to 'Edit this Memory', edit_memory_path(@memory) %>
+
+</div>
+<% end %>
+
 <h1><%= @memory.full_name %></h1>
 <%= @memory.lived %>
 <br />
 <% if @memory.epitaph %>
 <em><%= @memory.epitaph %></em>
 <% end %>
-<br />
+<br /><br />
 <h5>About <%= @memory.first_name %></h5>
 <p>
   <%= @memory.description %>
 </p>
-
-
-<%= link_to 'Edit', edit_memory_path(@memory) %> |
-<%= link_to 'Back', memories_path %>
+<br /><br />
+<h5>Eulogies</h5>
+<% if @eulogies %>
+	<%= render :partial => "eulogy", :collection => @eulogies, :as => :eulogy  %>
+<% else %>
+	<em>There are no eulogies for this memory.</em>
+<% end %>
+<br />
+<h5>Create Your Eulogy</h5>
+<% if signed_in? %>
+	<%= render :file => "eulogies/new" %>
+<% else %>
+	<em>You must be logged in to post a eulogy</em>. <%= link_to "Log In", login_path %>
+<% end %>

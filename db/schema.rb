@@ -15,8 +15,8 @@ ActiveRecord::Schema.define(:version => 20110128200906) do
   create_table "eulogies", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "user_id"
-    t.integer  "memory_id"
+    t.integer  "user_id",    :null => false
+    t.integer  "memory_id",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

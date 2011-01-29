@@ -19,6 +19,7 @@ Memorial::Application.routes.draw do
   match "/signup", :to => "users#new"
   match "/login", :to => "sessions#new"
   match "/logout", :to => "sessions#destroy"
+  match "/search", :to => "memories#search"
 
   get "pages/index"
 

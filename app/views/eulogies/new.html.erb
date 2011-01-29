@@ -1,0 +1,13 @@
+<% form_for([@memory, @memory.eulogies.new]) do |f| %>
+	<div class="field">
+		<%= f.label :title %><br />
+		<%= f.text_field :title %>
+	</div>
+	<div class="field">
+		<%= f.label :content %><br />
+		<%= f.text_area :content, :cols => 60, :rows => 5 %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Submit Eulogy", :class => "button" %>
+	</div>
+<% end %>

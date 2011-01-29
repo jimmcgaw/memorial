@@ -1,6 +1,6 @@
 class MemoriesController < ApplicationController
   
-  before_filter :authenticate, :except => [:show]
+  before_filter :authenticate, :except => [:show, :search]
   before_filter :correct_user, :only => [:edit, :update]
   
   # GET /memories
@@ -13,11 +13,22 @@ class MemoriesController < ApplicationController
       format.xml  { render :xml => @memories }
     end
   end
+  
+  def search
+    @q = params[:q]
+    @memories = Memory.search(@q)
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @memories }
+    end
+  end
 
   # GET /memories/1
   # GET /memories/1.xml
   def show
     @memory = Memory.find(params[:id])
+    @eulogies = @memory.eulogies
+    @correct_user = @memory.user == @current_user
 
     respond_to do |format|
       format.html # show.html.erb

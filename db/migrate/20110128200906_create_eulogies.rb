@@ -7,8 +7,8 @@ class CreateEulogies < ActiveRecord::Migration
     create_table :eulogies do |t|
       t.string :title
       t.text :content
-      t.belongs_to :user
-      t.belongs_to :memory
+      t.belongs_to :user, :null => false
+      t.belongs_to :memory, :null => false
 
       t.timestamps
     end
