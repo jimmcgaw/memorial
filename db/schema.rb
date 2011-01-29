@@ -63,7 +63,7 @@ ActiveRecord::Schema.define(:version => 20110129081529) do
     t.string   "encrypted_password",                                    :null => false
     t.string   "first_name",                                            :null => false
     t.string   "last_name",                                             :null => false
-    t.datetime "last_login",         :default => '2011-01-24 00:00:00'
+    t.datetime "last_login",         :default => '2011-01-28 00:00:00'
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "salt",                                                  :null => false
