@@ -6,4 +6,4 @@ tmp/**/*
 *.swp
 .project
 .loadpath
-public/system/images/*
+#public/system/images/*
