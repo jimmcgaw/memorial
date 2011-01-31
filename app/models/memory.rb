@@ -3,6 +3,11 @@ class Memory < ActiveRecord::Base
   has_many :eulogies
   has_many :funerals
   
+  attr_accessible :image_file_name
+  attr_accessible :image_content_type
+  attr_accessible :image_file_size
+  attr_accessible :image_updated_at
+  
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
   validates :first_name, :presence => true
