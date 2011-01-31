@@ -12,6 +12,8 @@
 <h1><%= @memory.full_name %></h1>
 <%= @memory.lived %>
 <br />
+<%= image_tag @memory.image.url(:medium) %>
+<br /><br />
 <% if @memory.epitaph %>
 <em><%= @memory.epitaph %></em>
 <% end %>
