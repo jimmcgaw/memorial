@@ -3,20 +3,13 @@ class Memory < ActiveRecord::Base
   has_many :eulogies
   has_many :funerals
   
-  attr_accessible :image_file_name
-  attr_accessible :image_content_type
-  attr_accessible :image_file_size
-  attr_accessible :image_updated_at
-  
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }
   
   validates :first_name, :presence => true
   validates :last_name, :presence => true
   validates :description, :presence => true
   
-  def before_create
-    @attributes['permalink'] = full_name.downcase.gsub(/\s+/, '-').gsub(/[^a-zA-Z0-9-]+/, '')
-  end
+  before_create :generate_permalink
 
   
   def to_param
@@ -43,5 +36,11 @@ class Memory < ActiveRecord::Base
     else
       []
     end
+  end
+  
+  private
+  
+  def generate_permalink
+    @attributes['permalink'] = full_name.downcase.gsub(/\s+/, '-').gsub(/[^a-zA-Z0-9-]+/, '')
   end
 end
